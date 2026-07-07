@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aries & Sandy Wedding</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sun: #d4a373;
+      --sage: #8da399;
+      --cream: #fffaf3;
+      --ivory: #fffdf8;
+      --text: #4b3f36;
+      --muted: #7f7168;
+      --line: rgba(139, 115, 92, 0.22);
+      --glass: rgba(255, 255, 255, 0.62);
+      --shadow: 0 18px 45px rgba(93, 73, 52, 0.13);
+      --soft-shadow: 0 12px 28px rgba(97, 76, 55, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Serif TC", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212, 163, 115, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(141, 163, 153, 0.18), transparent 38%),
+        var(--cream);
+      line-height: 1.8;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.22) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .no-wrap {
+      white-space: nowrap;
+      word-break: keep-all;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 980px);
+      z-index: 999;
+      padding: 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(70, 55, 40, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--sun);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 120px 20px 70px;
+      background:
+        linear-gradient(rgba(34, 26, 20, 0.25), rgba(34, 26, 20, 0.22)),
+        url("https://i.postimg.cc/brk0dQ9P/ying-mu-xie-qu-hua-mian-2025-08-12-211027.png");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 32%;
+      background: linear-gradient(transparent, var(--cream));
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      width: min(92%, 850px);
+      padding: 54px 28px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 34px;
+      background: rgba(255, 250, 243, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.24em;
+      color: var(--sun);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.7rem, 11vw, 8.5rem);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #45382f;
+    }
+
+    .tagline {
+      margin: 26px auto 0;
+      max-width: 720px;
+      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      letter-spacing: 0.08em;
+      color: #5b4d42;
+    }
+
+    .date-line {
+      margin-top: 26px;
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.16em;
+      color: var(--text);
+    }
+
+    .countdown {
+      margin: 38px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .time-card {
+      min-width: 112px;
+      margin: 8px 0;
+      padding: 18px 18px 15px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(255,255,255,0.78)),
+        rgba(255, 255, 255, 0.82);
+      box-shadow:
+        0 0 22px rgba(255, 255, 255, 0.56),
+        var(--soft-shadow);
+    }
+
+    .time-card .num {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      line-height: 1;
+      font-weight: 600;
+      color: #4a3d34;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-card .unit {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .countdown-separator {
+      width: 1px;
+      min-height: 86px;
+      margin: 20px 14px;
+      background: linear-gradient(transparent, rgba(116, 94, 75, 0.36), transparent);
+    }
+
+    section {
+      padding: 96px 20px;
+    }
+
+    .container {
+      width: min(100%, 960px);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title span {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.26em;
+      color: var(--sun);
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin: 8px 0 0;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .intro {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 34px 28px;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.54);
+      box-shadow: var(--soft-shadow);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .detail-cards {
+      display: grid;
+      gap: 22px;
+      width: min(100%, 680px);
+      margin: 0 auto;
+    }
+
+    .v-card {
+      position: relative;
+      padding: 30px 28px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+    }
+
+    .v-card::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 0;
+      width: 5px;
+      border-radius: 0 999px 999px 0;
+      background: linear-gradient(var(--sun), var(--sage));
+    }
+
+    .v-card small {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.22em;
+      color: var(--sun);
+      text-transform: uppercase;
+    }
+
+    .v-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+    }
+
+    .v-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .dress-code {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .dress-pill {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 243, 0.9);
+      letter-spacing: 0.16em;
+    }
+
+    .accordion {
+      width: min(100%, 760px);
+      margin: 38px auto 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion-item {
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 10px 24px rgba(93, 73, 52, 0.09);
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Noto Serif TC", serif;
+      font-size: 1rem;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-button .plus {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(212, 163, 115, 0.18);
+      color: var(--sun);
+      flex: 0 0 auto;
+      transition: transform 0.25s ease;
+    }
+
+    .accordion-item.active .plus {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .accordion-content-inner {
+      padding: 0 22px 22px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .accordion-content-inner p {
+      margin: 16px 0 0;
+    }
+
+    .rsvp-card {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 34px 28px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .field {
+      display: grid;
+      gap: 9px;
+    }
+
+    label {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: #5a4a40;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(139, 115, 92, 0.25);
+      border-radius: 18px;
+      background: rgba(255, 253, 248, 0.92);
+      padding: 14px 16px;
+      font-family: "Noto Serif TC", serif;
+      font-size: 1rem;
+      color: var(--text);
+      outline: none;
+      transition: border 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(212, 163, 115, 0.7);
+      box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.14);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .conditional {
+      display: none;
+    }
+
+    .conditional.show {
+      display: grid;
+    }
+
+    .submit-btn {
+      margin-top: 12px;
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 22px;
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.14em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--sun), var(--sage));
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(141, 115, 82, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(141, 115, 82, 0.28);
+    }
+
+    .form-note {
+      margin: 16px 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .submit-message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(141, 163, 153, 0.14);
+      color: #53685f;
+      text-align: center;
+    }
+
+    .submit-message.show {
+      display: block;
+    }
+
+    .footer {
+      padding: 42px 20px 60px;
+      text-align: center;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+      letter-spacing: 0.1em;
+    }
+
+    iframe[name="hidden-submit-frame"] {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        padding: 11px 14px;
+      }
+
+      .brand {
+        font-size: 1.18rem;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        padding-top: 98px;
+      }
+
+      .hero-card {
+        padding: 42px 18px;
+        border-radius: 28px;
+      }
+
+      .tagline {
+        letter-spacing: 0.04em;
+      }
+
+      .date-line {
+        font-size: 1.05rem;
+        letter-spacing: 0.1em;
+      }
+
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+      }
+
+      .time-card {
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        padding: 16px 10px 13px;
+        border-radius: 22px;
+      }
+
+      .countdown-separator {
+        display: none;
+      }
+
+      section {
+        padding: 74px 18px;
+      }
+
+      .intro,
+      .rsvp-card,
+      .v-card {
+        padding: 26px 20px;
+      }
+
+      .accordion-button {
+        gap: 14px;
+      }
+
+      .accordion-button span:first-child {
+        min-width: 0;
+      }
+
+      .no-wrap {
+        white-space: nowrap;
+        word-break: keep-all;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="#home" class="brand">A & S</a>
+    <div class="nav-links">
+      <a href="#about">關於我們</a>
+      <a href="#details">婚禮詳情</a>
+      <a href="#rsvp">出席回函</a>
+    </div>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero-card">
+      <p class="eyebrow">The Wedding of</p>
+      <h1>Aries & Sandy</h1>
+      <p class="tagline">你是此生最美麗的遇見，也是細水長流</p>
+      <div class="date-line">2026.10.25｜Sunday｜12:00</div>
+
+      <div class="countdown" aria-label="婚禮倒數計時">
+        <div class="time-card">
+          <span id="days" class="num">0</span>
+          <span class="unit">DAYS</span>
+        </div>
+        <div class="countdown-separator"></div>
+
+        <div class="time-card">
+          <span id="hours" class="num">0</span>
+          <span class="unit">HOURS</span>
+        </div>
+        <div class="countdown-separator"></div>
+
+        <div class="time-card">
+          <span id="minutes" class="num">0</span>
+          <span class="unit">MINUTES</span>
+        </div>
+        <div class="countdown-separator"></div>
+
+        <div class="time-card">
+          <span id="seconds" class="num">0</span>
+          <span class="unit">SECONDS</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <span>About Us</span>
+        <h2>關於我們</h2>
+      </div>
+
+      <div class="intro">
+        <p>
+          在時間溫柔的安排裡，我們相遇、相知，也決定牽起彼此的手，
+          一起走向往後每一個平凡而珍貴的日子。
+        </p>
+        <p>
+          誠摯邀請你，來見證 Aries 與 Sandy 的婚禮時刻。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="container">
+      <div class="section-title">
+        <span>Wedding Details</span>
+        <h2>婚禮詳情</h2>
+      </div>
+
+      <div class="detail-cards">
+        <article class="v-card">
+          <small>Date</small>
+          <h3>婚禮日期</h3>
+          <p><span class="no-wrap">2026年10月25日</span>，星期日</p>
+        </article>
+
+        <article class="v-card">
+          <small>Time</small>
+          <h3>儀式 / 午宴時間</h3>
+          <p>婚禮儀式與午宴時間暫定為 <span class="no-wrap">12:00</span> 開始。</p>
+        </article>
+
+        <article class="v-card">
+          <small>Dress Code</small>
+          <h3>Dress Code</h3>
+          <p>邀請你以以下色系出席，與我們一起留下溫柔而經典的畫面。</p>
+          <div class="dress-code">
+            <span class="dress-pill">紅</span>
+            <span class="dress-pill">黑</span>
+            <span class="dress-pill">白</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="accordion" aria-label="交通指引">
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            <span>交通指引｜捷運與大眾運輸</span>
+            <span class="plus">＋</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>
+                建議搭乘捷運至 <span class="no-wrap">捷運站名請填入</span>，
+                出站後可步行或轉乘計程車前往會場。
+              </p>
+              <p>
+                重要地點名稱請維持使用 <span class="no-wrap">no-wrap</span> 樣式，
+                手機版將不會自動斷行。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            <span>交通指引｜自行開車</span>
+            <span class="plus">＋</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>
+                導航可設定：
+                <span class="no-wrap">婚宴會館地址請填入</span>
+              </p>
+              <p>
+                停車資訊請依現場或會館公告為準。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            <span>交通指引｜關鍵地點</span>
+            <span class="plus">＋</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>
+                鄰近地標：
+                <span class="no-wrap">關鍵地點名稱請填入</span>
+              </p>
+              <p>
+                以上地名與地址皆已使用不斷行設計，避免手機畫面跑版。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="container">
+      <div class="section-title">
+        <span>RSVP</span>
+        <h2>出席回函</h2>
+      </div>
+
+      <div class="rsvp-card">
+        <form id="rsvpForm" target="hidden-submit-frame">
+          <div class="form-grid">
+            <div class="field">
+              <label for="guestName">姓名 NAME</label>
+              <input id="guestName" name="guestName" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">電話 PHONE</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+
+            <div class="field">
+              <label for="attendance">是否出席 ATTENDANCE</label>
+              <select id="attendance" name="attendance" required>
+                <option value="" selected disabled></option>
+                <option value="會出席">會出席</option>
+                <option value="不克出席">不克出席</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="lunchCount">參加午宴人數 LUNCH GUESTS</label>
+              <input id="lunchCount" name="lunchCount" type="number" min="0" inputmode="numeric" required>
+            </div>
+
+            <div id="dietField" class="field conditional">
+              <label for="diet">飲食需求 DIETARY REQUEST</label>
+              <select id="diet" name="diet">
+                <option value="" selected disabled></option>
+                <option value="無特殊需求">無特殊需求</option>
+                <option value="素食">素食</option>
+                <option value="不吃牛">不吃牛</option>
+                <option value="不吃海鮮">不吃海鮮</option>
+                <option value="其他">其他</option>
+              </select>
+            </div>
+
+            <div id="childChairField" class="field conditional">
+              <label for="childChair">是否需要兒童椅 CHILD CHAIR</label>
+              <select id="childChair" name="childChair">
+                <option value="" selected disabled></option>
+                <option value="不需要">不需要</option>
+                <option value="需要1張">需要1張</option>
+                <option value="需要2張">需要2張</option>
+                <option value="需要3張以上">需要3張以上</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">給我們的祝福 MESSAGE</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">Send RSVP</button>
+          </div>
+
+          <p class="form-note">
+            感謝你的回覆，我們期待在婚禮那天與你相見。
+          </p>
+
+          <div id="submitMessage" class="submit-message">
+            已收到你的回函，謝謝你的祝福。
+          </div>
+        </form>
+
+        <iframe name="hidden-submit-frame"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Aries & Sandy｜2026.10.25
+  </footer>
+
+  <script>
+    /*
+      使用方式：
+      1. 將下方空字串換成你的 Google 表單「預填網址」。
+      2. 程式會自動從網址中提取 Google Form ID 與 entry ID。
+      3. 網頁輸入框不會帶入任何預設內容。
+      4. 請確認 Google 表單欄位順序如下：
+         姓名、電話、是否出席、參加午宴人數、飲食需求、是否需要兒童椅、祝福留言
+    */
+    const GOOGLE_FORM_PREFILL_URL = "";
+
+    const WEDDING_DATE = new Date("2026-10-25T12:00:00+08:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = WEDDING_DATE - now;
+
+      if (diff <= 0) {
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    document.querySelectorAll(".accordion-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".accordion-item");
+        const content = item.querySelector(".accordion-content");
+        const isOpen = item.classList.contains("active");
+
+        document.querySelectorAll(".accordion-item").forEach((otherItem) => {
+          otherItem.classList.remove("active");
+          otherItem.querySelector(".accordion-content").style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+          item.classList.add("active");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    const lunchCountInput = document.getElementById("lunchCount");
+    const dietField = document.getElementById("dietField");
+    const childChairField = document.getElementById("childChairField");
+    const dietSelect = document.getElementById("diet");
+    const childChairSelect = document.getElementById("childChair");
+
+    function updateConditionalFields() {
+      const count = Number(lunchCountInput.value);
+
+      if (count > 0) {
+        dietField.classList.add("show");
+        childChairField.classList.add("show");
+        dietSelect.required = true;
+        childChairSelect.required = true;
+      } else {
+        dietField.classList.remove("show");
+        childChairField.classList.remove("show");
+        dietSelect.required = false;
+        childChairSelect.required = false;
+        dietSelect.value = "";
+        childChairSelect.value = "";
+      }
+    }
+
+    lunchCountInput.addEventListener("input", updateConditionalFields);
+
+    function parseGoogleFormUrl(prefillUrl) {
+      if (!prefillUrl || !prefillUrl.includes("docs.google.com/forms")) {
+        return null;
+      }
+
+      const url = new URL(prefillUrl);
+      const formIdMatch = url.pathname.match(/\/forms\/d\/e\/([^/]+)\//);
+      const formId = formIdMatch ? formIdMatch[1] : null;
+
+      const entryIds = [];
+      url.searchParams.forEach((value, key) => {
+        if (key.startsWith("entry.")) {
+          entryIds.push(key);
+        }
+      });
+
+      if (!formId || entryIds.length === 0) {
+        return null;
+      }
+
+      return {
+        actionUrl: `https://docs.google.com/forms/d/e/${formId}/formResponse`,
+        entryIds
+      };
+    }
+
+    function submitToGoogleForm(values) {
+      const formConfig = parseGoogleFormUrl(GOOGLE_FORM_PREFILL_URL);
+
+      if (!formConfig) {
+        alert("尚未設定 Google 表單預填網址，請先將網址貼到程式中的 GOOGLE_FORM_PREFILL_URL。");
+        return;
+      }
+
+      const form = document.createElement("form");
+      form.action = formConfig.actionUrl;
+      form.method = "POST";
+      form.target = "hidden-submit-frame";
+      form.style.display = "none";
+
+      const fieldValues = [
+        values.guestName,
+        values.phone,
+        values.attendance,
+        values.lunchCount,
+        values.diet,
+        values.childChair,
+        values.message
+      ];
+
+      fieldValues.forEach((value, index) => {
+        const entryId = formConfig.entryIds[index];
+
+        if (!entryId) {
+          return;
+        }
+
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = entryId;
+        input.value = value || "";
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+      form.remove();
+
+      document.getElementById("submitMessage").classList.add("show");
+      document.getElementById("rsvpForm").reset();
+      updateConditionalFields();
+    }
+
+    document.getElementById("rsvpForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const values = {
+        guestName: document.getElementById("guestName").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        attendance: document.getElementById("attendance").value,
+        lunchCount: document.getElementById("lunchCount").value,
+        diet: document.getElementById("diet").value,
+        childChair: document.getElementById("childChair").value,
+        message: document.getElementById("message").value.trim()
+      };
+
+      submitToGoogleForm(values);
+    });
+  </script>
+</body>
+</html>
